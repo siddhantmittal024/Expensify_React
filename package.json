@@ -6,11 +6,13 @@
   "author": "Siddhant Mittal",
   "license": "MIT",
   "scripts": {
-    "start": "live-server public/",
+    "serve": "live-server public/",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
-    "test": "jest --config=jest.config.json --watchAll"
+    "test": "jest --config=jest.config.json --watchAll",
+    "start": "node server/server.js", 
+    "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
     "@babel/core": "^7.10.5",
