@@ -2,28 +2,36 @@ import React from "react";
 import ReactDOM from "react-dom";
 import AppRouter from "./routers/AppRouter";
 import {Provider} from 'react-redux';
+import numeral from 'numeral';
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
-import configureStore from './store/configureStore';
-import {addExpense} from './actions/expenses';
-import {setTextFilter} from './actions/filters';
-import getVisibleExpenses from './selectors/expenses';
+import configureStore from './store/configureStore';;
+import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 
-store.dispatch(addExpense({description:'Water Bill', amount: 4500}));
-store.dispatch(addExpense({description:'Gas Bill', createdAt: 1000}));
-store.dispatch(addExpense({description:'Rent', amount: 19500}));
+numeral.register('locale', 'in', {
+	delimiters: {
+		thousands: ',',
+		decimal: '.',
+	},
+	abbreviations: {
+		thousand: 'k',
+		million: 'm',
+		billion: 'b',
+		trillion: 't',
+	},
+	currency: {
+		symbol: '₹',
+	},
+});
 
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses,state.filters);
+numeral.locale('in');
 
 const jsx = (
     <Provider store ={store}>
        <AppRouter/>
     </Provider>
 );
-
-console.log(visibleExpenses);
 
 ReactDOM.render(jsx, document.getElementById("app"));

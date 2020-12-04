@@ -1,13 +1,14 @@
-import { Switch, BrowserRouter, Route, Link, NavLink } from "react-router-dom";
-import ConnectedExpenseList from './ExpenseList';
-import ExpenseListFilters from "./ExpenseListFilters";
-import React from "react";
+import React from 'react';
+import ExpenseList from './ExpenseList';
+import ExpenseListFilters from './ExpenseListFilters';
+import ExpenseSummary from './ExpenseSummary';
 
 const ExpenseDashboardPage = () => (
-<div>
-     <ExpenseListFilters/>
-     <ConnectedExpenseList/>
-    </div>
-    );
+  <div>
+    <ExpenseSummary />
+    <ExpenseListFilters />
+    <ExpenseList />
+  </div>
+);
 
 export default ExpenseDashboardPage;
