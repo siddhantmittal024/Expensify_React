@@ -1,0 +1,26 @@
+.button {
+  background: $blue;
+  color: white;
+  border: none;
+  padding: $s-size;
+  display: inline-block;
+  font-weight: 300;
+  font-size: 1.8rem;
+  text-decoration: none;
+  line-height: 1;
+  border-radius: 3px;
+}
+
+.button--link {
+  margin: 2rem;
+  background-color: rgba(white, 0.05);
+  border-bottom: 2px solid lighten(rgba(#364051, 0.9), 20%);
+  margin: 0;
+  &:hover {
+    background-color: rgba(white, 0.1);
+  }
+}
+
+.button--secondary {
+  background: #888;
+}
